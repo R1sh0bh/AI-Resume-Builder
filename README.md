@@ -1,9 +1,12 @@
 # AI Resume Builder
 
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org)
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
+[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com)
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![JavaScript](https://img.shields.io/badge/JavaScript-99.7%25-blue.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-A modern, AI-powered web application that helps users create professional resumes effortlessly. By leveraging advanced AI models, this tool generates tailored resume content based on your skills, experience, and job preferences. Whether you're a recent graduate or a seasoned professional, build standout resumes in minutes!
+A modern, AI-powered web application built with the **MERN stack** (MongoDB, Express.js, React, Node.js) that helps users create professional resumes effortlessly. By leveraging advanced AI models, this tool generates tailored resume content based on your skills, experience, and job preferences. Whether you're a recent graduate or a seasoned professional, build standout resumes in minutes!
 
 ## 🚀 Features
 
@@ -18,9 +21,9 @@ A modern, AI-powered web application that helps users create professional resume
 ## 🛠️ Tech Stack
 
 - **Frontend**: React.js with Tailwind CSS for a sleek, responsive UI.
-- **Backend**: Node.js/Express.js for API handling.
-- **AI Integration**: OpenAI GPT models (or similar) for content generation.
-- **Database**: MongoDB for user sessions (optional; stateless by default).
+- **Backend**: Node.js with Express.js for robust API handling.
+- **Database**: MongoDB for efficient data storage and user sessions.
+- **AI Integration**: OpenAI GPT models (or similar) for intelligent content generation.
 - **Build Tools**: Vite for fast development and builds.
 - **Deployment**: Ready for Vercel, Netlify, or Heroku.
 
@@ -29,7 +32,7 @@ A modern, AI-powered web application that helps users create professional resume
 ### Prerequisites
 - Node.js (v18+)
 - npm or yarn
-- (Optional) MongoDB for persistent storage
+- MongoDB (local or cloud instance, e.g., MongoDB Atlas)
 
 ### Quick Start (Development)
 
@@ -40,13 +43,13 @@ A modern, AI-powered web application that helps users create professional resume
    ```
 
 2. **Install Dependencies**
-   - For the client:
+   - For the frontend (React client):
      ```bash
      cd client
      npm install
      cd ..
      ```
-   - For the server:
+   - For the backend (Node.js/Express server):
      ```bash
      cd server
      npm install
@@ -57,34 +60,35 @@ A modern, AI-powered web application that helps users create professional resume
    - Create a `.env` file in the `server` directory:
      ```
      OPENAI_API_KEY=your_openai_api_key_here
+     MONGODB_URI=your_mongodb_connection_string
      PORT=5000
-     MONGODB_URI=your_mongodb_connection_string (optional)
      ```
    - Get your OpenAI API key from [platform.openai.com](https://platform.openai.com).
+   - Set up MongoDB and provide the connection URI.
 
 4. **Run the Application**
-   - Start the server:
+   - Start the backend server:
      ```bash
      cd server
      npm run dev
      ```
-   - In a new terminal, start the client:
+   - In a new terminal, start the frontend:
      ```bash
      cd client
      npm run dev
      ```
-   - Open [http://localhost:3000](http://localhost:3000) in your browser.
+   - Open [http://localhost:3000](http://localhost:3000) in your browser. The frontend will proxy API calls to the backend at [http://localhost:5000](http://localhost:5000).
 
 ### Production Build
-- Client: `cd client && npm run build`
-- Server: `cd server && npm start`
-- Deploy the `client/dist` folder statically and the server to a Node.js host.
+- Frontend: `cd client && npm run build` (outputs to `client/dist` for static hosting).
+- Backend: `cd server && npm start`.
+- Deploy the built frontend statically (e.g., Vercel/Netlify) and the backend to a Node.js-compatible host (e.g., Heroku). Ensure MongoDB is configured for production.
 
 ## 💡 Usage
 
 1. **Enter Your Details**: Fill in sections like personal info, work experience, skills, and education.
 2. **Select Job Role**: Specify the target job (e.g., "Software Engineer") for AI-optimized suggestions.
-3. **Generate Content**: Click "Generate with AI" to auto-fill sections.
+3. **Generate Content**: Click "Generate with AI" to auto-fill sections using the backend API.
 4. **Customize & Preview**: Edit as needed and preview in real-time.
 5. **Export**: Download your polished resume!
 
